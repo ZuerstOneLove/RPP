@@ -33,6 +33,8 @@ namespace Pizza.DataModels
 				throw new ValidationException("Field Category is empty");
 			if (BaseId.IsEmpty())
 				throw new ValidationException("Field BaseId is empty");
+			if (!BaseId.IsGuid())
+				throw new ValidationException("The value in the field BaseId is not a unique identifier");
 			if (PriceForEmployee <= 0)
 				throw new ValidationException("Field PriceForEmployee is empty");
 		}

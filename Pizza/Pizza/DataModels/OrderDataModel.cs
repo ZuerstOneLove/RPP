@@ -30,12 +30,14 @@ namespace Pizza.DataModels
 				throw new ValidationException("The value in the field ID is not a unique identifier");
 			if (Status == OrderStatus.None)
 				throw new ValidationException("Field Status is empty");
-			if (Total <= 0)
+			if (Total < 0)
 				throw new ValidationException("Field Total is empty");
 			if (CreatedAt > DateTime.UtcNow.AddMinutes(5))
 				throw new ValidationException("Field CreatedAt cannot be in the future");
 			if (EmployeeId.IsEmpty())
 				throw new ValidationException("Field EmployeeId is empty");
+			if (!EmployeeId.IsGuid())
+				throw new ValidationException("The value in the field EmployeeId is not a unique identifier");
 		}
 	}
 }

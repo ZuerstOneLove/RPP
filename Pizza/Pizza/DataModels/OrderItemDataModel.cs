@@ -28,10 +28,16 @@ namespace Pizza.DataModels
 				throw new ValidationException("Field Quantity is empty");
 			if (OrderId.IsEmpty())
 				throw new ValidationException("Field OrderId is empty");
+			if (!OrderId.IsGuid())
+				throw new ValidationException("The value in the field OrderId is not a unique identifier");
 			if (DishId.IsEmpty())
 				throw new ValidationException("Field DishId is empty");
+			if (!DishId.IsGuid())
+				throw new ValidationException("The value in the field DishId is not a unique identifier");
 			if (EmployeeId.IsEmpty())
 				throw new ValidationException("Field EmployeeId is empty");
+			if (!EmployeeId.IsGuid())
+				throw new ValidationException("The value in the field EmployeeId is not a unique identifier");
 			if (CookedAt > DateTime.UtcNow.AddMinutes(5))
 				throw new ValidationException("Field CookedAt cannot be in the future");
 		}

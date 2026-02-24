@@ -86,7 +86,7 @@ namespace PizzaRestaurant.Tests.DataModelsTests
 			var orderId = Guid.NewGuid().ToString();
 			var status = OrderStatus.New;
 			var total = 0;
-			var createdAt = DateTime.Now.AddMinutes(-10);
+			var createdAt = DateTime.UtcNow.AddMinutes(-10);
 			var employeeId = Guid.NewGuid().ToString();
 
 			var order = CreateDataModel(orderId, status, total, createdAt, employeeId);

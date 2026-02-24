@@ -123,7 +123,7 @@ namespace PizzaRestaurant.Tests.DataModelsTests
 			var orderId = Guid.NewGuid().ToString();
 			var dishId = Guid.NewGuid().ToString();
 			var employeeId = Guid.NewGuid().ToString();
-			var cookedAt = DateTime.Now.AddMinutes(-15);
+			var cookedAt = DateTime.UtcNow.AddMinutes(-15);
 
 			var orderItem = CreateDataModel(orderItemId, quantity, orderId, dishId, employeeId, cookedAt);
 
